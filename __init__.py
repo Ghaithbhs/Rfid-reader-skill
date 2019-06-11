@@ -7,22 +7,19 @@ from mfrc522 import SimpleMFRC522
 reader = SimpleMFRC522()
 
 
-
-class login(MycroftSkill):
+class RfidReader(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
 
 
     @intent_handler(IntentBuilder("").require("querry"))
     def handle_login(self):
-
-
         try:
-            id, text = reader.read()
-            self.speak_dialog("login", data={"text": text})
+            id, name, family_name, email, num = reader.read()
+            self.speak_dialog("login", data={"name": name, "family_name": family_name, "email": email, "num": num})
         finally:
             GPIO.cleanup()
 
 
 def create_skill():
-    return login()
+    return RfidReader()
