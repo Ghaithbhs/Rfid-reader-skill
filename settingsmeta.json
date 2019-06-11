@@ -1,0 +1,19 @@
+{
+    "name": "authentification",
+    "skillMetadata": {
+        "sections": [
+             {
+                "name": "Skill description",
+                "fields": [
+                    {
+                        "type": "label",
+                        "label": "This skill allows the employees of focus to know the bus schedule, to edit it just fill in the new information regarding the bus schedule"
+                    }
+                ]
+            }
+
+
+
+        ]
+    }
+}
