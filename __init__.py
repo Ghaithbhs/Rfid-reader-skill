@@ -11,12 +11,11 @@ class RfidReader(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
 
-
     @intent_handler(IntentBuilder("").require("querry"))
     def handle_login(self):
         try:
-            id, name, family_name, email, num = reader.read()
-            self.speak_dialog("login", data={"name": name, "family_name": family_name, "email": email, "num": num})
+            id, t = reader.read()
+            self.speak_dialog("login", data={"name": t, "id": id})
         finally:
             GPIO.cleanup()
 
